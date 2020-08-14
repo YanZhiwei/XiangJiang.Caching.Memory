@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>XiangJiang</Product>
+    <Company>YanZhiwei</Company>
+    <Authors>YanZhiwei</Authors>
+    <Description>Based on ObjectCache development tool class library, using the document: https://github.com/YanZhiwei/XiangJiang.Caching.Memory/wiki; Welcome to pull request or star.</Description>
+    <Copyright>Copyright YanZhiwei 2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/YanZhiwei/XiangJiang.Caching.Memory</PackageProjectUrl>
+    <PackageIcon>nugetico.png</PackageIcon>
+    <RepositoryUrl>https://github.com/YanZhiwei/XiangJiang.Caching.Memory</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
+    <PackageReference Include="XiangJiang" Version="1.0.3" />
+    <PackageReference Include="XiangJiang.Caching.Abstractions" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.assets\nugetico.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
