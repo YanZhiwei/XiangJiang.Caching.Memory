@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
+using System.Threading.Tasks;
 using XiangJiang.Caching.Abstractions;
 using XiangJiang.Common;
 using XiangJiang.Core;
@@ -50,7 +51,18 @@ namespace XiangJiang.Caching.Memory
         public T Get<T>(string key)
         {
             Checker.Begin().NotNullOrEmpty(key, nameof(key));
-            return (T)_cache[key];
+            return _cache.Contains(key) ? (T)_cache[key] : default(T);
+        }
+
+        public async Task<T> GetAsync<T>(string key)
+        {
+            var value = Get<T>(key);
+            return await Task.FromResult(value);
+        }
+
+        public async Task SetAsync(string key, object data, uint cacheTimeMinute)
+        {
+            await Task.Run(() => Set(key, data, cacheTimeMinute));
         }
 
         /// <summary>
@@ -66,6 +78,11 @@ namespace XiangJiang.Caching.Memory
             return _cache.Contains(key);
         }
 
+        public async Task<bool> IsSetAsync(string key)
+        {
+            return await Task.Run(() => IsSet(key));
+        }
+
         /// <summary>
         ///     移除缓存
         /// </summary>
@@ -76,6 +93,11 @@ namespace XiangJiang.Caching.Memory
             _cache.Remove(key);
         }
 
+        public async Task RemoveAsync(string key)
+        {
+            await Task.Run(() => Remove(key));
+        }
+
         /// <summary>
         ///     根据正则表达式移除缓存
         /// </summary>
@@ -84,6 +106,11 @@ namespace XiangJiang.Caching.Memory
         {
             Checker.Begin().NotNullOrEmpty(pattern, nameof(pattern));
             this.RemoveByPattern(pattern, _cache.Select(p => p.Key));
+        }
+
+        public async Task RemoveByPatternAsync(string pattern)
+        {
+            await Task.Run(() => RemoveByPattern(pattern));
         }
 
         /// <summary>
