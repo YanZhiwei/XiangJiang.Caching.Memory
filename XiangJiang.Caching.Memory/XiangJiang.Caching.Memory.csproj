@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Product>XiangJiang</Product>
     <Company>YanZhiwei</Company>
@@ -11,12 +11,12 @@
     <PackageProjectUrl>https://github.com/YanZhiwei/XiangJiang.Caching.Memory</PackageProjectUrl>
     <PackageIcon>nugetico.png</PackageIcon>
     <RepositoryUrl>https://github.com/YanZhiwei/XiangJiang.Caching.Memory</RepositoryUrl>
-    <Version>1.0.1</Version>
+    <Version>2.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
-    <PackageReference Include="XiangJiang" Version="1.0.3" />
-    <PackageReference Include="XiangJiang.Caching.Abstractions" Version="1.0.1" />
+    <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
+    <PackageReference Include="XiangJiang" Version="1.0.9" />
+    <PackageReference Include="XiangJiang.Caching.Abstractions" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.assets\nugetico.png">
